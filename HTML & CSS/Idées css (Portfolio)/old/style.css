@@ -1,0 +1,109 @@
+.cont1 {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    margin:auto;
+    border: solid black 1px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+input {
+    width:200px;
+}
+
+input:hover {
+    background-color: lightslategray;
+}
+
+input::placeholder {
+    background-color: lightblue;
+}
+
+fieldset{
+    width: 498px;
+}
+
+.infosP {
+    width: 390px;
+    display:flex;
+    justify-content: flex-end;
+    padding:5px;
+}
+
+textarea {
+    margin-top:-10px;
+    flex-shrink:initial !important
+}
+
+.cb {
+    margin-bottom: 0px;
+    margin-top:0px;
+    color: blue;
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.cb input {
+    width:20px;
+}
+
+input[type="submit"] {
+    width: 40px;
+    height: 40px;
+    background-image: url(../img/Oui.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+input[type="reset"] {
+    width: 40px;
+    height: 40px;
+    background-image: url(../img/Non.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.contpr {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 500px;
+}
+
+.contsec, .contter {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;    
+}
+
+.contseca, .conttera {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.contsecb, .contterb {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.contterb {
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.contval {
+    width:250px;
+}
+/*.section2a {
+    justify-content: space-between;
+    flex:1 1 auto;
+}*/

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <title>Exo Nico</title>
+
+    <meta name="author" content="Nico M">
+    <meta name="description" content="TP#_LANGAGE">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/x-icon" href="../img/favvue.png">
+	
+</head>
+
+<body>
+	<section id="monApp">
+		<h1>Dynamic styling PART I:</h1>
+		<div @click="card($event)" :style="{ 'background-color': 'hsl(' + bgs[0] + ', 100%, 50%)', 'color': colors[0] }">Premier élément</div>
+		<div @click="card($event)" :style="{ 'background-color': 'hsl(' + bgs[1] + ', 100%, 50%)', 'color': colors[1] }">Deuxième élément</div>
+		<div @click="toggleClass($event)" :class="{ 'class-test-1': ct_bool[0] }">Troisième élément</div>
+		<div @click="toggleClass($event)" :class="{ 'class-test-2': ct_bool[1] }">Quatrième élément</div>			
+	</section>
+	<section id="monAutreApp">
+		<h1>Dynamic styling PART II:</h1>
+		<input v-on:keyup="toggleColor($event)" type="text" />
+		<input v-on:keyup="toggleClass($event)" type="text" />
+		<button @click="prompt()" :style="{ 'background-color': prompt_color}">{{prompt_txt}}</button>
+		<div :style="{ 'background-color': bg_color}">Hello !</div>
+		<div :class="{ 'hello': ct_bool[0], 'world': ct_bool[1] }">Hello world !</div>
+	</section>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

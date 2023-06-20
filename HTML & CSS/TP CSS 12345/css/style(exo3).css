@@ -1,0 +1,11 @@
+h1 {
+    text-shadow: 10px -10px 5px blueviolet;
+}
+
+.rose {
+    box-shadow: 0px 0px 30px red;
+}
+
+.vert {
+    box-shadow: -12px 12px 4px yellowgreen;
+}

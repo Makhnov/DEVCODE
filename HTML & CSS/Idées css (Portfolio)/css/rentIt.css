@@ -1,0 +1,210 @@
+@font-face {
+    font-family: "amaranth";
+    src: url(../polices/amaranthRegular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "amaranth";
+    src: url(../polices/amaranthBold.ttf) format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'amaranth';
+    src: url(../polices/amaranthItalic.ttf) format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+  
+  @font-face {
+    font-family: 'amaranth';
+    src: url(../polices/amaranthBoldItalic.ttf) format("truetype");
+    font-weight: bold;
+    font-style: italic;
+}
+  
+
+  @font-face {
+    font-family: "baskerville";
+    src: url(../polices/baskervilleRegular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "baskerville";
+    src: url(../polices/baskervilleBold.ttf) format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+  @font-face {
+    font-family: 'baskerville';
+    src: url(../polices/baskervilleItalic.ttf) format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+body, html 
+{
+    height: 100vh;
+    width: 100vw;
+    margin:0;
+    padding: 0;
+    /* font-family: 'baskerville'; */
+}
+
+body 
+{
+    background-image: url('/img/bgX.jpg');
+    background-blend-mode: luminosity;
+    background-size: cover;
+    background-position-x:center ;
+    background-repeat: no-repeat;
+    font-family:'amaranth';
+    overflow-x: hidden;
+    
+}
+
+#background {
+    position: absolute;
+    top:0%;
+    left:0%;
+    /* background:linear-gradient(to bottom, rgb(255, 115, 0), rgb(255, 115, 0) 5%, white 5%, white); */
+    height:300vh;
+    width: 100vw;
+}
+
+.bg {
+    position: absolute;
+    transform-style:inherit;
+    bottom:85%;
+    width: 100%;
+    opacity: .9;
+}
+
+h1 {
+    position: absolute;
+    font-size: 2rem;
+    color: white;
+    top:5%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo {
+    position: absolute;
+    top:10%;
+    left:50%;
+    transform: translate(-50%, -50%) scale(0.2) ;
+}
+
+.selection {
+    position: absolute;
+    top:18%;
+    left:50%;
+    height: 75px;
+    width: 75%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    z-index: 1;    
+}
+  
+.ami, .client {
+    box-shadow: 4px 4px 3px 2px rgba(255, 115, 0, 0.8);
+    background-color:rgba(255, 115, 0, 0.05);
+    height:100%;
+    width: 40%;
+    border-radius: 20px;
+    color: black;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+}
+  
+.ami:hover, .client:hover {
+    background-color:rgba(255, 115, 0, 0.75);
+    color:white;
+} 
+  
+p {
+    position: relative;
+    text-align: center;
+    font-family: 'amaranth';
+    font-size: 1.5rem;
+}
+  
+.ville {
+    position: absolute;
+    cursor:text;
+    box-shadow: 5px 5px 4px 2px rgba(255, 115, 0, 0.8);
+    background-color:rgba(255, 115, 0, 0.05);
+    background-image: url('../img/loupeOrange.png');
+    background-position: left center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top:25%;
+    left:50%;
+    height:100px;
+    width: 75%;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+    z-index: 2;    
+}
+
+.ville:hover {
+    background-color:rgba(255, 115, 0, 0.15);
+}
+  
+.bottom {
+    position: absolute;
+    top:33%;
+    left:0%;
+    height: 100%;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.carrousel1 {
+    background-image: url('../img/5.jpg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    margin:5% 0;
+}
+  
+.carrousel2 {
+    background-image: url('../img/2.jpg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    margin:1% 0;
+
+}
+  
+.confiance {
+    background-image: url('../img/confiance.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    margin:1% 0 100px 0;
+}
+
+header, footer {
+    height:100px;
+    width: 100vw;
+}

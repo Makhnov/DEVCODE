@@ -1,0 +1,43 @@
+.un {
+    text-align: center;
+    font-size:0px;
+    background-image: radial-gradient(circle at center, rgb(173, 216, 230, 1), rgb(255, 192, 203, 1));
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+.un:hover {
+    text-align: center;
+    color:black;
+    font-size: 300px;
+    background-image: radial-gradient(circle at center, rgb(173, 216, 230, 0.5), rgb(255, 192, 203, 0.5));
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+.deux {
+    background-image: repeating-radial-gradient(circle at center, black, white 10px);
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    margin-bottom:20px;
+}
+
+.deux:hover {
+    background-image: repeating-radial-gradient(circle at center, white, black 10px);
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    margin-bottom:20px;
+}
+
+.txt {
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255, 0.5), rgb(0, 0, 0, 0.5));
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+}

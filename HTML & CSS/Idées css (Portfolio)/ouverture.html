@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <title>Portfolio</title>
+
+    <meta name="author" content="Nico M" />
+    <meta name="description" content="TP#_LANGAGE" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="./js/script.js"></script>
+    <link rel="stylesheet" href="../css/ouverture.css" />
+    <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.css" class="style" />
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico" />
+</head>
+
+<body>
+    <section id="introduction">
+        <div class="bienvenue"></div>
+        <div class="balle"></div>
+        <div class="sol"></div>
+        <div class="focale"></div>
+    </section>
+
+    <section id="site">
+        <div class="container">
+            <div class="row justify-content-center align-items-center border border-primary border-5 rounded my-2">
+                <div class="col-3 col-md-4 col-xl-6 h-100 d-flex justify-content-center align-items-center">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#inscriptionModal">
+                        Plus d'image gratuites !
+                    </button>
+
+                    <div class="modal fade" id="inscriptionModal" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="inscriptionModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="inscriptionModalLabel">
+                                        Inscrivez vous
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-3 col-md-4 col-xl-6 h-100 d-flex justify-content-start">
+                                                <label for="adresseMail">Adresse mail : </label>
+                                            </div>
+                                            <div class="col-3 col-md-4 col-xl-6 h-100 d-flex justify-content-center">
+                                                <input type="email" name="mail" placeholder="Adresse mail"
+                                                    id="adresseMail" />
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-3 col-md-4 col-xl-6 h-100 d-flex justify-content-start">
+                                                <label for="pseudo">Nom : </label>
+                                            </div>
+
+                                            <div class="col-3 col-md-4 col-xl-6 h-100 d-flex justify-content-center">
+                                                <input type="text" name="pseudo" placeholder="Entrez un pseudo"
+                                                    maxlength="10" id="pseudo" />
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-3 col-md-4 col-xl-6 h-100 d-flex justify-content-start">
+                                                <label for="mdp">Mot de passe : </label>
+                                            </div>
+                                            <div class="col-3 col-md-4 col-xl-6 h-100 d-flex justify-content-center">
+                                                <input type="password" name="password" placeholder="Mot de passe"
+                                                    maxlength="10" id="mdp" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+                                    <button type="button" class="btn btn-primary">
+                                        Save changes
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3 col-md-4 col-xl-6 h-100 d-flex justify-content-center align-items-center my-2">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#connexionModal">
+                        Déjà inscrit
+                    </button>
+
+                    <div class="modal fade" id="connexionModal" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="connexionModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="connexionModalLabel">
+                                        Connectez vous
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-3 col-md-4 col-xl-6 h-100 d-flex justify-content-start">
+                                                <label for="pseudo">Pseudo : </label>
+                                            </div>
+
+                                            <div class="col-3 col-md-4 col-xl-6 h-100 d-flex justify-content-center">
+                                                <input type="text" name="pseudo" placeholder="Entrez un pseudo"
+                                                    maxlength="10" id="pseudo" />
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-3 col-md-4 col-xl-6 h-100 d-flex justify-content-start">
+                                                <label for="mdp">Mot de passe : </label>
+                                            </div>
+                                            <div class="col-3 col-md-4 col-xl-6 h-100 d-flex justify-content-center">
+                                                <input type="password" name="password" placeholder="Mot de passe"
+                                                    maxlength="10" id="mdp" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+                                    <button type="button" class="btn btn-primary">
+                                        Save changes
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <p class="my-2"></p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center align-items-center">
+                <div class="col-6 col-md-8 col-xl-10 border border-primary border-5 rounded p-0">
+                    <div id="carouselSlides" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselSlides" data-bs-slide-to="0"
+                                class="active bg-primary" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselSlides" data-bs-slide-to="1"
+                                class="bg-primary" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselSlides" data-bs-slide-to="2"
+                                class="bg-primary" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carouselSlides" data-bs-slide-to="3"
+                                class="bg-primary" aria-label="Slide 4"></button>
+                            <button type="button" data-bs-target="#carouselSlides" data-bs-slide-to="4"
+                                class="bg-primary" aria-label="Slide 5"></button>
+                        </div>
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../img/slides/slide1.jpg" class="d-block w-100 m-0" alt="Image au hasard" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../img/slides/slide2.jpg" class="d-block w-100 m-0" alt="Image au hasard" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../img/slides/slide3.jpg" class="d-block w-100 m-0" alt="Image au hasard" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../img/slides/slide4.jpg" class="d-block w-100 m-0" alt="Image au hasard" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../img/slides/slide5.jpg" class="d-block w-100 m-0" alt="Image au hasard" />
+                            </div>
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselSlides"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon rounded" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselSlides"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon rounded" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 col-md-8 col-xl-10 h-100">
+                    <p class="my-5"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+body, html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-content: center;
+  overflow-x: hidden;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+form {
+  height: 70vh;
+  width: 75vw;
+}
+
+form p {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+}
+form p * {
+  margin: 10px;
+}
+form p label {
+  width: 200px;
+  text-align: start;
+}
+
+#submitEmployes {
+  cursor: pointer;
+}
+
+#confirmAjoutEmployes {
+  height: 100px;
+  width: 300px;
+  padding-left: 60px;
+  text-overflow: wrap;
+  background-image: url("../../divers/img/oui.png");
+  background-size: 50px 50px;
+  background-position: left center;
+  background-repeat: no-repeat;
+  display: grid;
+  align-content: center;
+}/*# sourceMappingURL=26janvierAprem.css.map */

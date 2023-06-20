@@ -1,0 +1,218 @@
+@font-face {
+  font-family: "amaranth";
+  src: url(../polices/amaranthRegular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "amaranth";
+  src: url(../polices/amaranthBold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'amaranth';
+  src: url(../polices/amaranthItalic.ttf) format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'amaranth';
+  src: url(../polices/amaranthBoldItalic.ttf) format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "baskerville";
+  src: url(../polices/baskervilleRegular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "baskerville";
+  src: url(../polices/baskervilleBold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'baskerville';
+  src: url(../polices/baskervilleItalic.ttf) format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+html{
+  height: 100%;
+  overflow: hidden;
+}
+
+body{
+  /* background:linear-gradient(to right, #1c3249, #0b3f67 50%, #233041); */
+  background-color:#4370aa;
+  margin: 0;
+  padding: 0;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#rent{
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 30vw 0 5vw;
+  position: relative;
+  transform-style: inherit;
+  width: 100vw;
+}
+
+#rent, #rent:before{
+  background-position: 50% 50%;
+  background-size:cover;
+}
+
+#rent::before{
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  background-image: url(../img/bg2.jpg);
+  background-size: cover;
+  transform-origin: center center 0;
+  transform: translateZ(-2000px) scale(3);
+  z-index: -1;
+  min-height: 250vh;
+}
+#rent h1 {
+  position: absolute;
+  top:5%;
+  left:50%;
+  transform-style: inherit;
+  transform: translate(-50%, -50%) translateZ(-900px) scale(1.2);
+  font-family: 'amaranth';
+  font-weight:bold;
+  font-size:3rem;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  color: white;
+  text-shadow: 2px 2px 1px rgb(255, 115, 0);
+}
+
+#rent .logo {
+  position: absolute;
+  top:45%;
+  left:50%;
+  background-image:url('../img/rentItOrange2.png');
+  background-position: center;
+  background-size: contain;
+  transform-style: inherit;
+  transform: translate(-50%, -50%) translateZ(-100px) scale(1.2);
+  height: 300px;
+  width: 300px;
+}
+
+#rent .selection {
+  position: absolute;
+  top:60%;
+  left:50%;
+  height: 60px;
+  width: 60vw;
+  transform: translate(-50%, -50%) translateZ(200px) scale(0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+
+}
+
+#rent .selection .ami, #rent .selection .client {
+  box-shadow: 4px 4px 2px rgb(255, 115, 0);
+  background-color: white;
+  height:60px;
+  width: 15vw;
+  border-radius: 20px;
+  color: black;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+}
+
+#rent .selection .ami:hover, #rent .selection .client:hover {
+  background-color:rgb(255, 115, 0);
+  color:white;
+} 
+
+p {
+  position: relative;
+  text-align: center;
+  font-family: 'amaranth';
+  font-size: 1.5rem;
+}
+
+#rent .ville {
+  position: absolute;
+  cursor:text;
+  box-shadow: 4px 4px 2px rgb(255, 115, 0);
+  background-color: white;
+  background-image: url('../img/loupeOrange.png');
+  background-position: left center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  top:66%;
+  left:50%;
+  height: 70px;
+  width: 60vw;
+  border-radius: 20px;
+  transform: translate(-50%, -50%) translateZ(300px) scale(0.5);
+}
+
+.carrousel1 {
+  position: absolute;
+  background-image: url('../img/5.jpg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  top:150%;
+  left:50%;
+  height: 80vh;
+  width: 100vw;
+  transform: translate(-50%, -50%) translateZ(10px) scaleX(1.5);
+}
+
+.carrousel2 {
+  position: absolute;
+  background-image: url('../img/2.jpg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  top:250%;
+  left:50%;
+  height: 80vh;
+  width: 80vw;
+  transform: translate(-50%, -50%) translateZ(10px) scaleX(1.5);
+}
+
+.confiance {
+  position: absolute;
+  background-image: url('../img/confiance.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  top:340%;
+  left:50%;
+  height: 80vh;
+  width: 80vw;
+  transform: translate(-50%, -50%) translateZ(10px) scaleX(1);
+}

@@ -1,0 +1,86 @@
+/* -------------------------------------- MISE EN FORME GENERALE DE LA PAGE -------------------------------------- */
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+body {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sphere {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  animation: rotationCercle 20s linear infinite;
+}
+
+.cercle {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  box-shadow: 0 0 3px 3px rgb(227, 233, 218);
+}
+
+.cercle30 {
+  transform: translate(-50%, -50%) rotateX(30deg);
+}
+.cercle60 {
+  transform: translate(-50%, -50%) rotateX(60deg);
+}
+.cercle90 {
+  transform: translate(-50%, -50%) rotateY(90deg);
+}
+.cercle120 {
+  transform: translate(-50%, -50%) rotateY(120deg);
+}
+.cercle150 {
+  transform: translate(-50%, -50%) rotateY(150deg);
+}
+.cercle180 {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+.cercle210 {
+  transform: translate(-50%, -50%) rotateY(210deg);
+}
+.cercle240 {
+  transform: translate(-50%, -50%) rotateY(240deg);
+}
+.cercle270 {
+  transform: translate(-50%, -50%) rotateY(270deg);
+}
+.cercle300 {
+  transform: translate(-50%, -50%) rotateY(300deg);
+}
+.cercle330 {
+  transform: translate(-50%, -50%) rotateY(330deg);
+}
+.cercle360 {
+  transform: translate(-50%, -50%) rotateY(0deg);
+}
+
+@keyframes rotationCercle {
+  0% {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+
+  50% {
+    transform: rotateY(-180deg) rotateX(180deg);
+  }
+
+  100% {
+    transform: rotateY(-360deg) rotateX(360deg);
+  }
+}

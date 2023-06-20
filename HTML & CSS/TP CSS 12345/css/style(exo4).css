@@ -1,0 +1,22 @@
+.un {
+    background-image: linear-gradient(to bottom left, red,green,blue);
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+.deux {
+    background-image: linear-gradient(290deg, yellow 0%, purple 25%);
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    margin-bottom:20px;
+}
+
+.txt {
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255, 0.5), rgb(0, 0, 0, 0.5));
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+}

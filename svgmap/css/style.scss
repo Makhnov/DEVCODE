@@ -1,0 +1,477 @@
+$hauteurBox: 100vh;
+$largeurBox: 100vw;
+$padding: 20px;
+$vert: #90e79e;
+$pomme: #b5ce78;
+$persan: #2c9d87;
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: $hauteurBox;
+    width: $largeurBox;
+}
+
+body {
+    background-color: rgb(171, 230, 230);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.container {
+    height: 75%;
+    max-height: 1000px;
+    width: 75%;
+    max-width: 1050px;
+    padding: 0 0 (.15*$hauteurBox) 0;
+    margin: 0 auto;
+    overflow: scroll;
+}
+
+div.container {
+    z-index: 10;
+    pointer-events: none;
+    position: absolute;
+
+    fieldset {
+        position: absolute;
+        pointer-events: auto;
+        display: flex;
+        flex-direction: column;
+        background-color: #edc5f5;
+    }
+
+    fieldset.reinitialisation {
+        top: $padding;
+        right: $padding;
+    }
+
+    fieldset.selection {
+        top: calc($padding / 2);
+        left: calc($padding / 2);
+        height: fit-content;
+        width: fit-content;
+
+        div {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        label {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        input,
+        label {
+            height: 30px;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    fieldset.information {
+        justify-content: space-evenly;
+        margin: 0;
+        padding: 5px;
+        bottom: $padding;
+        right: $padding;
+        width: calc(100% / 3);
+        min-width: 180px;
+        aspect-ratio: 1/1;
+        container: infos / inline-size;
+
+        div {
+            flex: none;
+            width: 100%;
+            height: 40px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+
+            &.comcom {
+                display: none;
+            }
+        }
+
+        label,
+        p {
+            height: 36px;
+            margin: 2px 0px;
+            padding: 0 0 0 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        label {
+            flex: none;
+            width: 30cqi;
+            min-width: 85px;
+            text-decoration: underline;
+            font-size: clamp(1rem, 4.5cqi, 2.5rem);
+            font-weight: bold;
+        }
+
+        p {
+            width: 100%;
+            flex: 1 1 auto;
+            font-size: clamp(.9rem, 3.5cqi, 2rem);
+            text-overflow: clip;
+        }
+
+        @container (max-width: 220px) {
+            div {
+                flex: 1 1 auto;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+
+                label,
+                p {
+                    padding: 0 0 0 0;
+                    width: 100% !important;
+                    height: 20px;
+                }
+
+                label {
+                    margin: 2px 0 0 0;
+                }
+
+                p {
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    margin: 0 0 2px 0;
+                }
+            }
+        }
+    }
+}
+
+main.container {
+    flex-direction: column;
+    background-color: #fefefe;
+    transition: .1s;
+
+    div.carte {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        transform-origin: top left;
+        transform: scale(1);
+    }
+
+    g path {
+        fill-opacity: 1;
+        stroke-opacity: 1;
+    }
+}
+
+main.container.vue_epci {
+    g[data-nom="CC Cagire Garonne Salat"] {
+        &:hover path {
+            fill: $persan !important;
+        }
+    }
+
+    g {
+        path {
+            stroke-width: 0.36;
+        }
+
+        &:hover path {
+            cursor: pointer;
+            stroke: whitesmoke;
+        }
+    }
+
+    div.carte svg {
+        @for $i from 0 through 20 {
+            $hue: $i * 25 % 360;
+            $sat: ($i * 6% % 20)+50%;
+            $bri: 70% - ($i * 4% % 20);
+
+            g:nth-of-type(#{$i + 1}) path {
+                fill: hsl($hue, $sat, $bri);
+                stroke: hsl($hue, $sat, $bri);
+            }
+
+            g:nth-of-type(#{$i + 1}):hover path {
+                fill: hsl($hue, 0.75*$sat, 0.75*$bri);
+                stroke: hsl($hue, 0.75*$sat, 0.75*$bri);
+            }
+        }
+    }
+}
+
+main.container.vue_communes {
+    g {
+        pointer-events: none;
+
+        path {
+            pointer-events: auto;
+            fill: $pomme;
+            stroke: white;
+            stroke-width: 0.2;
+
+            &:hover {
+                fill: $persan !important;
+                stroke: black;
+                stroke-width: 0.36;
+            }
+        }
+    }
+}
+
+
+g[data-nom="CC Cagire Garonne Salat"] {
+    path {
+        fill: $vert !important;
+    }
+}
+
+/*
+g[data-nom="CC du Frontonnais"] {
+    path {
+        fill: azure;
+        fill-opacity: 1;
+        stroke: black;
+        stroke-width: 0.001;
+        stroke-opacity: 1;
+
+        &:hover {
+            fill: red;
+        }
+    }
+}
+
+g[data-nom="CC du Volvestre"] {
+    path {
+        fill: #edc5f5;
+        fill-opacity: 1;
+        stroke: black;
+        stroke-width: 0.001;
+        stroke-opacity: 1;
+
+        &:hover {
+            fill: red;
+        }
+    }
+}
+
+g[data-nom="CA Le Muretain Agglo"] {
+    path {
+        fill: rgb(84, 245, 245);
+        fill-opacity: 1;
+        stroke: gray;
+        stroke-width: 0.001;
+        stroke-opacity: 1;
+
+        &:hover {
+            fill: red;
+        }
+    }
+}
+
+g[data-nom="CC du Bassin Auterivain Haut-Garonnais"] {
+    path {
+        fill: #5e8700;
+        fill-opacity: 1;
+        stroke: #ffffff;
+        stroke-width: 0.001;
+        stroke-opacity: 1;
+
+        &:hover {
+            fill: orange;
+        }
+    }
+}
+
+g[data-nom="CC Coeur de Garonne"] {
+    path {
+        fill: rgb(56, 82, 199);
+        fill-opacity: 1;
+        stroke: whitesmoke;
+        stroke-width: 0.001;
+        stroke-opacity: 1;
+
+        &:hover {
+            fill: red;
+        }
+    }
+}
+
+g[data-nom="CC des Terres du Lauragais"] {
+    path {
+        fill: #54d370;
+        fill-opacity: 1;
+        stroke: whitesmoke;
+        stroke-width: 0.001;
+        stroke-opacity: 1;
+
+        &:hover {
+            fill: red;
+        }
+    }
+}
+
+g[data-nom="CC des Hauts-Tolosans"] {
+    path {
+        fill: rgb(204, 221, 156);
+        fill-opacity: 1;
+        stroke: gray;
+        stroke-width: 0.001;
+        stroke-opacity: 1;
+
+        &:hover {
+            fill: red;
+        }
+    }
+}
+
+// polygon[id="31020 ASPET"] {
+//     fill: orange!important;
+
+//     &:hover {
+//         fill: blue!important;
+//     }
+// }
+
+g[data-nom="CC Pyrénées Haut Garonnaises"] {
+    path {
+        fill: #290e1e;
+        fill-opacity: 1;
+        stroke: #ffffff;
+        stroke-width: 0.001;
+        stroke-opacity: 1;
+
+        &:hover {
+            fill: orange;
+        }
+    }
+}
+
+g[data-nom="CC Coeur et Coteaux du Comminges"] {
+    path {
+        fill: rgb(172, 162, 22);
+        fill-opacity: 1;
+        stroke: black;
+        stroke-width: 0.001;
+        stroke-opacity: 1;
+
+        &:hover {
+            fill: red;
+        }
+    }
+}
+
+g[data-nom="Toulouse Métropole"] {
+    path {
+        fill: #cf81df;
+        fill-opacity: 1;
+        stroke: black;
+        stroke-width: 0.001;
+        stroke-opacity: 1;
+
+        &:hover {
+            fill: red;
+        }
+    }
+}
+
+g[data-nom="CC Lauragais Revel Sorezois"] {
+    path {
+        fill: rgb(158, 212, 176);
+        fill-opacity: 1;
+        stroke: gray;
+        stroke-width: 0.001;
+        stroke-opacity: 1;
+
+        &:hover {
+            fill: red;
+        }
+    }
+}
+
+g[data-nom="CA du Sicoval"] {
+    path {
+        fill: #870007;
+        fill-opacity: 1;
+        stroke: #ffffff;
+        stroke-width: 0.001;
+        stroke-opacity: 1;
+
+        &:hover {
+            fill: orange;
+        }
+    }
+}
+
+g[data-nom="CC des Coteaux du Girou"] {
+    path {
+        fill: rgb(56, 82, 199);
+        fill-opacity: 1;
+        stroke: rgb(46, 42, 42);
+        stroke-width: 0.001;
+        stroke-opacity: 1;
+
+        &:hover {
+            fill: red;
+        }
+    }
+}
+
+g[data-nom="CC Val'Aïgo"] {
+    path {
+        fill: #547cd3;
+        fill-opacity: 1;
+        stroke: whitesmoke;
+        stroke-width: 0.001;
+        stroke-opacity: 1;
+
+        &:hover {
+            fill: red;
+        }
+    }
+}
+
+g[data-nom="CC Le Grand Ouest Toulousain"] {
+    path {
+        fill: rgb(74, 94, 20);
+        fill-opacity: 1;
+        stroke: gray;
+        stroke-width: 0.001;
+        stroke-opacity: 1;
+
+        &:hover {
+            fill: red;
+        }
+    }
+}
+
+g[data-nom="CC des Coteaux Bellevue"] {
+    path {
+        fill: rgb(221, 169, 156);
+        fill-opacity: 1;
+        stroke: gray;
+        stroke-width: 0.001;
+        stroke-opacity: 1;
+
+        &:hover {
+            fill: red;
+        }
+    }
+}
+*/

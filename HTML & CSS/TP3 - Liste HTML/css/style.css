@@ -1,0 +1,25 @@
+table td {
+    border: solid black 3px;
+}
+
+table th {
+    border: solid black 3px;
+}
+
+table {
+    border-collapse:collapse;
+
+  }
+
+.hf, .hd {
+    border-bottom:solid black 1px;
+}
+
+.mf, .md {
+    border-top:solid black 1px;
+    border-bottom:solid black 1px;
+}
+
+.bf, .bd {
+    border-top:solid black 1px;
+}

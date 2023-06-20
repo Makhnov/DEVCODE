@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Exo Nico</title>
+</head>
+
+<body>
+    <header>
+
+        <nav>
+            <ul class="menubartop">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#article3">Blog</a></li>
+                <li><a href="https://makh.fr" target="_blank">Gallerie</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="banniere">
+            <img src="img/banniere.jpg" alt="Banniere de Nico">
+            <div class="titreBanniere">Bienvenue sur le site de Nico</div>
+        </div>
+
+    </header>
+
+    <h2>Merci de bien vouloir remplir ce Formulaire :</h2>
+
+    <form action="GET" class="Form1">
+
+        <section class="contpr">
+
+            <section class="contsec">
+                <section class="contseca">
+                    <fieldset>
+                        <legend>Infos personnelles</legend>
+                        <div class="infosP"><label for="prenom">Votre Prénom :</label>
+                            <input type="text" id="prenom" name="prenom" placeholder="Ex. Marcel" maxlength="20">
+                        </div>
+                        <div class="infosP"><label for="nom">Votre nom :</label>
+                            <input type="text" id="nom" name="nom" placeholder="Ex. DUPONT" maxlength="20">
+                        </div>
+                        <div class="infosP"><label for="email">Votre adresse mail :</label>
+                            <input type="email" id="email" name="mail" placeholder="Ex. marcel.dupont@orange.fr">
+                        </div>
+                        <div class="infosP"><label for="numero">Votre numéro de téléphone :</label>
+                            <input type="tel" id="numero" name="numero" placeholder="Ex. 00.59.78.11.45">
+                        </div>
+                        <div class="infosP"><label for="age">Votre age :</label>
+                            <input type="number" id="age" name="age" placeholder="Ex. 15">
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Sécurité</legend>
+                        <div><label for="pw">Mot de passe :</label>
+                            <input type="password" id="pw" name="pw" placeholder="Ex. P@ssW04d" minlength="8"
+                                maxlength="30">
+                        </div>
+                    </fieldset>
+                </section>
+                <section class="contsecb">
+                    <div>
+                        <fieldset>
+                            <legend>Vous vous levez</legend>
+                            <div class="cb"><label for="matinradio">Le matin</label><input type="radio" id="matinradio"
+                                    name="lever">
+                            </div>
+                            <div class="cb"><label for="midiradio">Le midi</label><input type="radio" id="midiradio"
+                                    name="lever">
+                            </div>
+                            <div class="cb"><label for="soirradio">Le soir</label><input type="radio" id="soirradio"
+                                    name="lever">
+                            </div>
+                            <div class="cb"><label for="retardradio">En retard !</label><input type="radio"
+                                    id="retardradio" name="lever" checked>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <fieldset>
+                            <legend>Vous préférez</legend>
+                            <div class="cb"><label for="htmlcb">Le HTML</label><input type="checkbox" id="htmlcb"
+                                    name="htmlcb"></div>
+                            <div class="cb"><label for="csscb">Le CSS</label><input type="checkbox" id="csscb"
+                                    name="csscb">
+                            </div>
+                            <div class="cb"><label for="jscb">Le JavaScript</label><input type="checkbox" id="jscb"
+                                    name="jscb">
+                            </div>
+                            <div class="cb"><label for="coolcb">Ne rien faire !</label><input type="checkbox"
+                                    id="coolcb" name="coolcb" checked>
+                            </div>
+                        </fieldset>
+                    </div>
+                </section>
+            </section>
+
+            <section class="contter">
+                <section class="conttera">
+                    <p>Laissez-nous un commentaire :)</p>
+                    <div>
+
+                        <textarea id="commentaire" name="commentaire" placeholder="J'adore ce que vous faites !"
+                            cols="70" rows="10"></textarea>
+                    </div>
+                </section>
+
+                <section class="contterb">
+                    <div>
+                        <label for="assez">Vous en avez assez ?</label>
+                        <select name="assez" id="assez">
+                            <optgroup label="Team Pas Encore">
+                                <option value="plus">J'en veux plus...</option>
+                                <option value="super">C'est super !</option>
+                            </optgroup>
+                            <optgroup label="Team Oula">
+                                <option value="plus">J'en ai marre...</option>
+                                <option value="super">Pitié !</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div>
+                        <fieldset class="contval">
+                            <legend>Validation</legend>
+                            <div class="validation">
+                                <input type="reset" value="">
+                                <input type="submit" value="">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <a href="./index.html">Retour à l'accueil</a>
+                    </div>
+                </section>
+
+            </section>
+
+        </section>
+
+    </form>
+
+    <br>
+
+    <footer>
+        <nav>
+            <ul class="menubarbtm">
+                <li><a href="https://www.adrar-formation.com/" target=" _blank">Crédits</a></li>
+                <li><a href="https://www.legifrance.gouv.fr/" target="_blank">Mentions légales</a></li>
+                <li><a href="https://www.google.fr/" target="_blank">Nos partenaires</a></li>
+                <li><a href="https://www.wikipedia.fr/" target="_blank">FAQ</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+
+
+
+</html>

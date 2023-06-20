@@ -1,0 +1,95 @@
+html, body {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display:grid;
+    place-content: center;
+    background-color: white;
+}
+
+button {
+    position: absolute;
+    top:10px;
+    width:50px;
+    height:auto;
+}
+
+button:hover {
+    filter: brightness(2);
+    cursor: pointer;
+}
+
+#start {
+    left:10px;
+    background-color: green;
+}
+
+#stop {
+    left:70px;
+    background-color: rgb(150, 0, 0);
+}
+
+#ball {
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: black;
+    top: 0px;
+    left: - 7.5px;
+    z-index: 10;
+  }
+
+#bordure {
+    position: absolute;
+    height: calc(70vh - 15px);
+    width: calc(80vw - 15px);
+    top: 5vh;
+    left: 10vw;
+    box-sizing: border-box;
+    z-index: 7;
+}
+  
+  #jeu {
+    position: absolute;
+    top: 5vh;
+    height: 70vh;
+    left: calc(10vw);
+    width: calc(80vw);
+    background-color: whitesmoke;
+    display: flex;
+    flex-wrap: nowrap;
+    z-index: 5;
+  }
+  
+
+.col {
+    min-height:calc(100% - 2px);
+    width:calc(100% / 20);
+    display:flex;
+    flex-direction: column; 
+}
+
+.row {
+    height:5vh;
+    flex:none;
+}
+
+@for $i from 1 through 20 {
+    @for $j from 1 through 7{
+        .col:nth-of-type(#{$i}) .row:nth-of-type(#{$j}) {
+            background-color: rgb(calc(25 + 30 * $j), calc(10 + 10 * $i), calc(255 - (5 * $i) - (15 * $j)));
+        }
+    }
+}
+
+.row:last-child {
+    height:100%;
+    background-color: blanchedalmond;
+    flex:1 1 auto;
+}

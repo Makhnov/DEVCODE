@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <title>Exo Nico</title>
+
+    <meta name="author" content="Nico M">
+    <meta name="description" content="TP#_LANGAGE">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="./js/script.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+
+</head>
+
+<body onLoad="themeSwap('abat')">
+
+    <header>
+        <h1 class="abat">Au boulot !</h1>
+        <nav class="navDesk">
+            <ul>
+                <li><a href="./index.html">Menu</a></li>
+                <li><a href="./form.html">Inscription</a></li>
+                <li><a href="./liens.html">Crédits</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+            </ul>
+        </nav>
+
+        <div class="themeSwap">
+            <label class="lampe"></label>
+            <div class="lumiere"></div>
+            <label for="themeCheckboxIndex" class="cordelette"></label>
+            <input onChange="themeSwap('abat')" id="themeCheckboxIndex" type="checkbox" class="checkbox">
+        </div>
+    </header>
+
+    <section id="zoneDeTravail">
+        <div class="desk">
+            <form id="formulaire" method="POST" action="formulaire.php">
+                <div class="formPseudo">
+                    <label for="pseudo">Pseudo:</label>
+                    <input type="text" name="pseudo" id="pseudo" placeholder="Mon pseudo">
+                </div>
+                <div class="formPass">
+                    <label for="mdp">Mot de passe:</label>
+                    <input type="password" name="mdp" id="mdp" placeholder="mdp">
+                </div>
+                <div class="cb">
+                    <label for="checkbox">Se souvenir de moi</label>
+                    <input type="checkbox" name="checkbox" id="checkbox">
+                </div>
+                <div class="button">
+                    <input type="button" value="Connexion" id="bouton">
+                    <input type="button" value="Retour" id="bouton">
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+
+    </form>
+
+    <section id="zoneDeMenu">
+        <div class="navigationDesk">
+
+        </div>
+    </section>
+
+    <footer>
+
+    </footer>
+
+</body>
+
+</html>

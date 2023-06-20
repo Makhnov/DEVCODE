@@ -1,0 +1,38 @@
+.dice{
+    border: 2px red solid;
+    border-radius: 25px;
+    background-color: lightgray;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+}
+
+.dot{
+    width: 10px;
+    height: 10px;
+    border: 1px red solid;
+    background-color: red;
+    border-radius: 10px;
+}
+
+#d1, #d2, #d3, #d4, #d6, #d5 {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+#d1, #d2, #d3 {
+    align-items: center;
+}
+
+#d4 div, #d6 div, #d5 div {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#d5 div:nth-of-type(2) {
+    align-self: center;
+    border:solid yellow 4px;
+}

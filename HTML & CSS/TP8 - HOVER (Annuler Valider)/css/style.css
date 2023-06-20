@@ -1,0 +1,35 @@
+.txt {
+    transform: scale(0.5) rotate(35deg) skewY(10deg);
+}
+
+.validation {
+    position:fixed;
+    width:8vw;
+    border:solid black 1px;
+}
+
+#oui {
+    top:25vh;
+    left:50vw;
+}
+
+#oui:hover {
+    transform: rotate(45deg);
+}
+
+#oui:active {
+    transform: rotate(145deg);
+}
+
+#non {
+    top:25vh;
+    left:40vw;
+}
+
+#non:hover {
+    transform: skewX(40deg);
+}
+
+#non:active {
+    transform: translateX(200px);
+}

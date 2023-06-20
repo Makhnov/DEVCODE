@@ -1,0 +1,22 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  background-color: azure;
+  display: grid;
+  place-content: center;
+}
+
+h1 {
+  position: absolute;
+  justify-self: center;
+  top: 20px;
+}
+
+div {
+  font-size: 2rem;
+}/*# sourceMappingURL=style.css.map */

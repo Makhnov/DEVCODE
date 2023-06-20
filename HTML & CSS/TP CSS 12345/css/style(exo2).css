@@ -1,0 +1,63 @@
+h1 {
+    color:blue;
+    text-align: center;
+    font-size: 50px;
+}
+
+h1:hover {
+    color:green;
+    text-align: center;
+    font-size: 50px;
+}
+
+h3 {
+    color:rgb(41, 144, 207);
+    font-size: 24px;
+}
+
+p:active {
+    background-color:lightgrey;
+}
+
+a:visited {
+    color: lightgray;
+}
+
+a:link{
+    color:orange;
+}
+
+img {
+    border: 2px solid black;
+    height:297px;
+    width:210px;
+    align-items: center;
+}
+
+img:hover {
+        display:none;
+}
+
+li:nth-child(odd) {
+    color:black;
+}
+
+li:nth-child(even) {
+    color:blue;
+}
+
+li:nth-child(n):hover ~ li:nth-child(2n) {
+    color:blue;
+}
+
+li:nth-child(n):hover ~ li:nth-child(2n) {
+    color:black;
+}
+
+li:nth-child(n):hover ~ li:nth-child(-2n) {
+    color:blue;
+}
+
+li:nth-child(n):hover ~ li:nth-child(-2n) {
+    color:black;
+}

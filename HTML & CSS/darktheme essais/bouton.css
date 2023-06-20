@@ -1,0 +1,79 @@
+/*BOUTON THEME SOMBRE DEBUT */
+
+/* CONFIGURATION DU BOUTON DE THEME (Nico) */
+
+#themeBox 
+{    
+    background-color: lightslategray;
+    border:black solid 2px;
+    position:absolute;
+    top:3px;
+    right:3px;
+    width: 100px;
+	height: 40px;
+    border-radius:55px;	
+}
+
+#themeBox label
+{
+    visibility: transparent;
+    position: absolute;
+    top: 50%;
+	left: 50%;
+    transform: translate(-50%, -50%);
+	z-index: 2;
+	width: 100px;
+	height: 40px;	
+	border-radius: 55px;
+    cursor: pointer;	
+}
+
+#themeLabel .curseur 
+{
+    background:blanchedalmond;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-83%, -50%);
+    z-index: 1;
+    width: 54px;
+    height: 32px;	
+    border-radius: 50px;
+    background-color:antiquewhite;
+    border:solid #171f27 2px;
+    transition:0.5s;	
+}
+
+#themeCheck:checked ~ #themeLabel .curseur 
+{
+    transform: translate(-17%, -50%);
+    background-color:#171f27;
+    border:solid #f3f4e4 2px;
+    transition:0.5s; 
+}
+
+#themeLabel .sun 
+{
+	background-image:url('./img/soleil.png');
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-150%, -50%);
+    background-size:contain;
+    height: 30px;
+    width:30px;
+}
+
+#themeLabel .moon 
+{
+	background-image:url('./img/lune.png');
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(50%, -50%);
+    background-size:contain;
+    height: 30px;
+    width:30px;
+}
+
+/*BOUTON THEME SOMBRE FIN */

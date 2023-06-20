@@ -1,0 +1,259 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  background-color: black;
+}
+
+#site {
+  position: absolute;
+  height: calc (100vh - 3rem);
+  width: calc (100vw - 3rem);
+  margin: 1rem;
+  padding: 2rem;
+  background-color: antiquewhite;
+  animation: ouvertureSite 8s linear 4s;
+}
+
+/*
+#carouselSlides {
+} */
+
+.bienvenue {
+  position: absolute;
+  background-image: url("../img/bienvenue.png");
+  top: 50vh;
+  left: 20vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 600px;
+  height: 300px;
+  transform: translate(-299.5px, -115.5px);
+  z-index: 10;
+  animation: ouvertureBienvenue 8s linear;
+  visibility: hidden;
+}
+
+.balle {
+  position: absolute;
+  top: 10vh;
+  left: -10vw;
+  min-height: 30px;
+  min-width: 30px;
+  border-radius: 50%;
+  background-color: white;
+  z-index: 10;
+  animation: ouvertureBalle 8s linear;
+}
+
+.sol {
+  position: absolute;
+  background-color: white;
+  top: 50vh;
+  left: 20vw;
+  border-radius: 50%;
+  transform: translateY(30px);
+  height: 0px;
+  width: 8px;
+  z-index: 10;
+  animation: ouvertureSol 8s linear;
+}
+
+/* .focale {
+  z-index: 5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 200vw;
+  width: 200vw;
+  border: 0px transparent black;
+  box-sizing: border-box;
+  border-radius: 100%;
+  background-color: transparent;
+  animation: ouvertureFocale 8s linear;
+  visibility: hidden;
+}
+
+@keyframes ouvertureFocale {
+  from {
+    border: 200vw solid black;
+    visibility: visible;
+  }
+  to {
+    border: 0vw solid black;
+    visibility: visible;
+  }
+} */
+
+@keyframes ouvertureSite {
+  from {
+    clip-path: circle(0% at center);
+  }
+  to {
+    clip-path: circle(100% at center);
+  }
+}
+
+@keyframes ouvertureBalle {
+  0% {
+    transform: translateX(10vw) translateY(0vh);
+  }
+
+  4% {
+    transform: translateX(14vw) translateY(2.66vh);
+  }
+
+  8% {
+    transform: translateX(18vw) translateY(8vh);
+  }
+
+  12% {
+    transform: translateX(22vw) translateY(18.66vh);
+  }
+
+  16% {
+    transform: translateX(26vw) translateY(29.66vh);
+  }
+
+  20% {
+    transform: translateX(30vw) translateY(40vh);
+  }
+
+  22% {
+    transform: translateX(32vw) translateY(35vh);
+  }
+
+  24% {
+    transform: translateX(34vw) translateY(32vh);
+  }
+
+  26% {
+    transform: translateX(36vw) translateY(31vh);
+  }
+
+  28% {
+    transform: translateX(38vw) translateY(33vh);
+  }
+
+  30% {
+    transform: translateX(40vw) translateY(36vh);
+  }
+
+  32% {
+    transform: translateX(42vw) translateY(40vh);
+  }
+
+  36% {
+    transform: translateX(46vw) translateY(36vh);
+  }
+
+  40% {
+    transform: translateX(50vw) translateY(40vh);
+  }
+
+  42% {
+    transform: translateX(52vw) translateY(39vh);
+  }
+
+  44% {
+    transform: translateX(54vw) translateY(40vh);
+  }
+
+  46% {
+    transform: translateX(56vw) translateY(39.5vh);
+  }
+
+  48% {
+    transform: translateX(58vw) translateY(40vh);
+  }
+
+  50% {
+    transform: translateX(60vw) translateY(40vh);
+    opacity: 1;
+  }
+
+  55% {
+    transform: translateX(60vw) translateY(40vh);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(60vw) translateY(40vh);
+    opacity: 0;
+  }
+}
+
+@keyframes ouvertureSol {
+  0% {
+    height: 6px;
+    width: 6px;
+  }
+
+  19% {
+    height: 6px;
+    width: 6px;
+  }
+
+  20% {
+    height: 6px;
+    width: 30px;
+  }
+
+  21% {
+    height: 6px;
+    width: 3vw;
+  }
+
+  50% {
+    height: 6px;
+    width: 33vw;
+    opacity: 1;
+  }
+
+  55% {
+    height: 6px;
+    width: 33vw;
+    opacity: 0;
+  }
+
+  100% {
+    width: 30vw;
+    opacity: 0;
+  }
+}
+
+@keyframes ouvertureBienvenue {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  41% {
+    background-image: url("../img/bienvenueArgh.png");
+    opacity: 1;
+    visibility: visible;
+  }
+
+  50% {
+    opacity: 1;
+    visibility: visible;
+    background-image: url("../img/bienvenueArgh.png");
+  }
+
+  55% {
+    opacity: 0;
+    visibility: visible;
+    background-image: url("../img/bienvenueArgh.png");
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

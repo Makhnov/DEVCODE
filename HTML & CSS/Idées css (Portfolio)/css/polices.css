@@ -1,0 +1,103 @@
+@font-face {
+    font-family: "amaranth";
+    src: url(../polices/amaranthRegular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "amaranth";
+    src: url(../polices/amaranthBold.ttf) format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'amaranth';
+    src: url(../polices/amaranthItalic.ttf) format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+  
+  @font-face {
+    font-family: 'amaranth';
+    src: url(../polices/amaranthBoldItalic.ttf) format("truetype");
+    font-weight: bold;
+    font-style: italic;
+}
+  
+
+  @font-face {
+    font-family: "baskerville";
+    src: url(../polices/baskervilleRegular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "baskerville";
+    src: url(../polices/baskervilleBold.ttf) format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+  @font-face {
+    font-family: 'baskerville';
+    src: url(../polices/baskervilleItalic.ttf) format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+body, html 
+{
+    height: 100vh;
+    width: 100vw;
+    margin:0;
+    padding: 0;
+}
+
+body 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.amaranth {
+    font-family: 'amaranth';
+}
+.amaranth p:nth-of-type(1) 
+{
+    font-style: normal;
+    font-weight: bold;
+}
+.amaranth p:nth-of-type(2) 
+{
+    font-style: italic;
+    font-weight: normal;
+}
+.amaranth p:nth-of-type(3) 
+{
+    font-style: italic;
+    font-weight: bold;
+}
+
+.baskerville {
+    font-family: 'baskerville';
+}
+.baskerville p:nth-of-type(1) 
+{
+    font-style: normal;
+    font-weight: bold;
+}
+.baskerville p:nth-of-type(2) 
+{
+    font-style: italic;
+    font-weight: normal;
+}
+.baskerville p:nth-of-type(3) 
+{
+    font-style: italic;
+    font-weight: bold;
+}

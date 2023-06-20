@@ -1,0 +1,79 @@
+/* FORMULAIRE */
+
+div.b {
+    margin-left: 2vw;
+    margin-right: 3vw;
+    margin-bottom: 1vw;
+    display:flex;
+    justify-content:space-between;
+}
+
+.cb {
+    margin-left: 2vw;    
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.button {
+    margin-top:1vw;
+    padding:1vw;
+    display:flex;
+    justify-content: center;
+}
+
+input#bouton {
+    margin-right:2vw;
+    margin-left:2vw;
+    height:2.5vw;
+    width:6vw;
+    background-color: lightskyblue;
+}
+
+input#bouton:hover {
+    background-color: lightseagreen;
+}
+
+input#checkbox {
+    margin-right:2vw;
+}
+
+/* BUREAU */
+
+#scene
+{
+    background-color: #333;
+
+    max-width: 1000px;
+    width:80%;
+    height: 80%;
+    margin:100px auto auto auto;
+    display: flex;
+    justify-content: center;
+    perspective: 2000px;
+    perspective-origin:bottom;
+}
+
+.bureauImage 
+{
+    background-image:url('../img/desk1.png');
+    background-repeat: no-repeat;
+    background-position:bottom center;
+    background-size: 75%;
+    height:80vh;
+    width:100%;    
+}
+
+.bureauForm
+{
+    opacity: 0.5;
+    position:absolute;
+    bottom:clamp(0px, 18vw, 225px);
+    height:clamp(68px, 15vw, 250px);
+    width:clamp(159px, 30vw, 530px);
+    transform-style:preserve-3d;
+    transform: rotateX(62deg) rotateY(0deg) rotateZ(-29deg) translateX(-2vw) translateY(-4vw) translateZ(0vw) skewX(10deg) skewY(0deg);
+    text-transform: uppercase;
+    font-size:clamp(15px, 3vw, 25px);
+    font-weight: bold;    
+}

@@ -1,0 +1,103 @@
+input {
+  appearance: none;
+  outline-offset: 2px;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 30%;
+  left: 47%;
+  cursor: pointer;
+}
+#A {
+  outline: 2px solid red;
+}
+#A:checked {
+  background: red;
+}
+#B {
+  transform: translateX(20px);
+  outline: 2px solid green;
+}
+#B:checked {
+  background: green;
+}
+#C {
+  transform: translateX(40px);
+  outline: 2px solid blue;
+}
+#C:checked {
+  background: blue;
+}
+#D {
+  transform: translateX(0px) translateY(20px);
+  outline: 2px solid red;
+}
+#D:checked {
+  background: red;
+}
+#E {
+  transform: translateX(20px) translateY(20px);
+  outline: 2px solid green;
+}
+#E:checked {
+  background: green;
+}
+#F {
+  transform: translateX(40px) translateY(20px);
+  outline: 2px solid blue;
+}
+#F:checked {
+  background: blue;
+}
+
+.test {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 17.5vh;
+  width: 40vw;
+  transform: translate(-50%, -50%);
+  background-color: bisque;
+  display: grid;
+  place-content: center;
+}
+
+.un {
+  height: 15vh;
+  width: 37.5vw;
+}
+
+.test {
+  --red: 0;
+  --green: 0;
+  --blue: 0;
+}
+
+.un {
+  background-color: rgb(var(--red), var(--green), var(--blue));
+}
+
+#A:checked ~ .test {
+  --red: 255;
+}
+
+#B:checked ~ .test {
+  --green: 255;
+}
+
+#C:checked ~ .test {
+  --blue: 255;
+}
+
+#D:checked ~ .test {
+  --red: 255;
+}
+
+#E:checked ~ .test {
+  --green: 255;
+}
+
+#F:checked ~ .test {
+  --blue: 255;
+}

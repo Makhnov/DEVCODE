@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/portfolioNico.css">
+    <title>Portfolio MAKH</title>
+</head>
+<body>
+
+<!------------ Les INPUTS (Indentation fictive pour la lisibilité, ainsi positionné chaque bouton peut influer sur n'importe quel élément du body avec le sélector "~") ------------>
+
+    <input      type="radio" id="m-t"   name="commuCol" value="Makh Infos">
+        <input  type="radio" id="m-t-t" name="commutateur" value="Makh Infos (Top)">
+        <input  type="radio" id="m-t-m" name="commutateur" value="Makh Infos (Mid)">
+        <input  type="radio" id="m-t-b" name="commutateur" value="Makh Infos (Bot)">
+
+    <input      type="radio" id="m-m"   name="commuCol" value="Mid ::Before">
+        <input  type="radio" id="m-m-t" name="commutateur" value="Makh ::Before (Top)">
+        <input  type="radio" id="m-m-m" name="commutateur" value="Makh ::Before (Top)">
+        <input  type="radio" id="m-m-b" name="commutateur" value="Makh ::Before (Top)">
+
+    <input      type="radio" id="m-b"   name="commuCol" value="Mid ::After">
+        <input  type="radio" id="m-b-t" name="commutateur" value="Makh ::After (Top)">
+        <input  type="radio" id="m-b-m" name="commutateur" value="Makh ::After (Top)">
+        <input  type="radio" id="m-b-b" name="commutateur" value="Makh ::After (Top)">
+
+<!------------ La GRILLE (invisible) 3 x 3 : Horizontal(col) : left(l), mid(m), right(r) // Vertical(row) : top(t), mid(m), bot(b) ------------>
+
+    <section id="col-l" class="col">
+        <div id="row-l-t" class="row row-l row-t"></div>
+        <div id="row-l-m" class="row row-l row-m"></div>
+        <div id="row-l-b" class="row row-l row-b"></div>
+    </section>
+
+    <section id="col-m" class="col">
+        <div id="row-m-t" class="row row-m row-t"></div>
+        <div id="row-m-m" class="row row-m row-m"></div>
+        <div id="row-m-b" class="row row-m row-b"></div>
+    </section>
+
+    <section id="col-r" class="col">
+        <div id="row-r-t" class="row row-r row-t"></div>
+        <div id="row-r-m" class="row row-r row-m"></div>
+        <div id="row-r-b" class="row row-r row-b"></div>
+    </section>
+
+</body>
+</html>

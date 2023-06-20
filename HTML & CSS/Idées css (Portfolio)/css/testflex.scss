@@ -1,0 +1,29 @@
+$image1:"/img/slide1.jpg";
+$image2:"/img/slide2.jpg";
+
+html, body {
+  margin:0;
+  padding:0;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-content: center;
+}
+
+input ~ .image {
+  background-image:url($image1);
+}
+
+input:checked ~ .image {
+  background-image:url($image2);
+}
+
+.image {
+  height: 340px;
+  width:240px;
+  background-size:cover;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

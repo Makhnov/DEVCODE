@@ -1,0 +1,101 @@
+$m:"margin";
+$p:"padding";
+$multiplicateur:1;
+$width:2560px;
+
+@function margin($multiplicateur) {
+    $marge: round(($width/300) * $multiplicateur);
+    @return $marge;
+}
+
+@function padding($multiplicateur) {
+    $pad: round(($width/600) * $multiplicateur);
+    @return $pad;
+}
+
+@function resize($toto, $multiplicateur) {
+    @if($toto == "padding"){
+        @return padding($multiplicateur);
+    }@else if($toto == "margin"){
+        @return margin($multiplicateur);
+    }@else{
+        @return 0px;
+    }
+}
+
+body {
+    padding:0;
+    margin:0;
+    height: 100vh;
+    width: 100vw;
+    background-color: blanchedalmond;
+    display: grid;
+    place-content: center;
+}
+
+section {
+    margin-top:resize($m, 15);
+    margin-bottom:resize($m, 10);
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+}
+
+section.m {
+    background-color: lightblue;
+    border:ridge black 5px;
+    height: clamp(200px, 50vh, 600px);
+    width: clamp(200px, 60vw, 1000px);
+    flex:0 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 35px;
+}
+
+.infosPerso {
+    // margin-left: calc(7.5 * marge($width));
+    // margin-left: calc(7.5 * resize($m, $width));
+
+    margin-left: resize($m, 17.5);
+    margin-right: resize($m, 25);
+    margin-bottom: resize($m, 2.5);
+    display:flex;
+    justify-content:space-between;
+}
+
+.infosPerso input {
+    margin-left: resize($m, 5);
+}
+
+.infosCheckbox {
+    margin-left: resize($m, 16.25);    
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.infosBouton {
+    margin-top: resize($m, 2.5);
+    padding: resize($p, 2);
+    display:flex;
+    justify-content: center;
+}
+
+input#bouton {
+    margin-right: resize($m, 2.5);
+    margin-left: resize($m, 2.5);
+    height:35px;
+    width:100px;
+    background-color: lightskyblue;
+}
+
+input#bouton:hover {
+    background-color: lightseagreen;
+}
+
+input#checkbox {
+    margin-right: resize($m, 2.5);
+}

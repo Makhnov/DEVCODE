@@ -1,0 +1,551 @@
+@font-face {
+  font-family: "libreBaskerville";
+  src: url("../fonts/LibreBaskerville-Regular.ttf") format("truetype"),
+    url("../fonts/LibreBaskerville-Bold.ttf") format("truetype"),
+    url("../fonts/LibreBaskerville-Italic.ttf") format("truetype");
+}
+
+body {
+  width: 85vw;
+  margin: auto;
+  background-color: #fefefe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background-color: aqua;
+}
+
+.ecran {
+  height: 600px;
+}
+
+.test {
+  position: absolute;
+  background-color: #fefefe;
+  top: 0;
+  right: 0;
+  width: 110px;
+  height: 110px;
+  border-radius: 0 0 0 100%;
+  border-left: 7px solid black;
+  border-bottom: 7px solid black;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: right;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+
+.test a {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+
+.test p {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  font-family: "libreBaskerville", sans-serif;
+}
+
+.test2 {
+  position: absolute;
+  background-color: black;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 0 0 0 100%;
+  border: 90px solid aqua;
+  border-top: none;
+  border-right: none;
+}
+
+.test2:hover {
+  background-color: #fefefe;
+  transform-origin: top right;
+  width: 110px;
+  height: 110px;
+  border-radius: 0 0 0 100%;
+  border: 10px solid black;
+  border-top: none;
+  border-right: none;
+  opacity: 0;
+  transition: 1s ease;
+}
+
+.echoBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0;
+  margin: 0;
+  display: grid;
+}
+
+#navBar {
+  position: absolute;
+  top: 10%;
+  right: 1%;
+  height: 25px;
+  width: 25px;
+}
+
+.navBar.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.navBar.center:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 300%;
+  height: 300%;
+  box-sizing: border-box;
+  margin-left: -100%;
+  margin-top: -100%;
+  border-radius: 45px;
+  background-color: #26292b;
+  animation: vibrations 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.navBar.center:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  border-radius: 15px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  animation: boule 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite;
+}
+
+@keyframes vibrations {
+  0% {
+    transform: scale(0.33);
+  }
+  80%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes boule {
+  0% {
+    transform: scale(0.7);
+  }
+
+  20% {
+    transform: scale(0.85);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  60% {
+    transform: scale(1.4);
+  }
+
+  80% {
+    transform: scale(1.8);
+  }
+
+  100% {
+    transform: scale(2);
+  }
+}
+
+#navBar:checked ~ .center {
+  height: 100px;
+  width: 100px;
+}
+
+#navBar:checked ~ .echoBox {
+  visibility: hidden;
+}
+
+.echoBox.cacheBox {
+  transform: translate(-50%, -50%) rotate(45deg);
+  overflow: hidden;
+  height: 84px;
+  min-height: 84px;
+  width: 84px;
+  min-width: 84px;
+  grid-template-columns: 42px 42px;
+  grid-template-rows: 42px 42px;
+  margin: 0;
+  padding: 0;
+}
+
+.cacheTopLeft {
+  grid-row: 1;
+  grid-column: 1;
+  background-color: #fefefe;
+  border-radius: 100% 0 0 0;
+  transform-origin: bottom right;
+  transform: rotate(-45deg) skew(30deg, 30deg);
+}
+
+.cacheTopRight {
+  grid-row: 1;
+  grid-column: 2;
+  background-color: #fefefe;
+  border-radius: 0 100% 0 0;
+  transform-origin: bottom left;
+  transform: rotate(-45deg) skew(-30deg, -30deg);
+}
+
+.cacheBottomRight {
+  grid-row: 2;
+  grid-column: 2;
+  background-color: #fefefe;
+  border-radius: 0 0 100% 0;
+  transform-origin: top left;
+  transform: rotate(-45deg) skew(30deg, 30deg);
+}
+
+.cacheBottomLeft {
+  grid-row: 2;
+  grid-column: 1;
+  background-color: #fefefe;
+  border-radius: 0 0 0 100%;
+  transform-origin: top right;
+  transform: rotate(-45deg) skew(-30deg, -30deg);
+}
+
+.echoBox.min {
+  grid-template-columns: 14px 14px;
+  grid-template-rows: 14px 14px;
+  overflow: hidden;
+  width: 28px;
+  height: 28px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: -1;
+}
+.min .echo {
+  width: 11px;
+  height: 11px;
+}
+
+.echoBox.minMed {
+  grid-template-columns: 20px 20px;
+  grid-template-rows: 20px 20px;
+  overflow: hidden;
+
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: -1;
+}
+.minMed .echo {
+  width: 15px;
+  height: 15px;
+}
+
+.echoBox.med {
+  grid-template-columns: 27px 27px;
+  grid-template-rows: 27px 27px;
+  overflow: hidden;
+
+  width: 54px;
+  height: 54px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: -1;
+}
+.med .echo {
+  width: 20px;
+  height: 20px;
+}
+
+.echoBox.maxMed {
+  grid-template-columns: 34px 34px;
+  grid-template-rows: 34px 34px;
+  overflow: hidden;
+
+  width: 68px;
+  height: 68px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: -1;
+}
+.maxMed .echo {
+  width: 25px;
+  height: 25px;
+}
+
+.echoBox.max {
+  grid-template-columns: 41px 41px;
+  grid-template-rows: 41px 41px;
+  overflow: hidden;
+
+  width: 82px;
+  height: 82px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: -1;
+}
+.max .echo {
+  width: 30px;
+  height: 30px;
+}
+
+.echoLeft {
+  grid-row: 2;
+  grid-column: 1;
+  border-radius: 0 0 0 100%;
+  border-top: none;
+  border-right: none;
+}
+.echoLeft.echoMin {
+  border-left: 3px solid black;
+  border-bottom: 3px solid black;
+}
+.echoLeft.echoMinMed {
+  border-left: 5px solid black;
+  border-bottom: 5px solid black;
+}
+.echoLeft.echoMed {
+  border-left: 7px solid black;
+  border-bottom: 7px solid black;
+}
+.echoLeft.echoMaxMed {
+  border-left: 9px solid black;
+  border-bottom: 9px solid black;
+}
+.echoLeft.echoMax {
+  border-left: 11px solid black;
+  border-bottom: 11px solid black;
+}
+
+.echoBottom {
+  grid-row: 2;
+  grid-column: 2;
+  border-radius: 0 0 100% 0;
+  border-top: none;
+  border-left: none;
+}
+.echoBottom.echoMin {
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
+}
+.echoBottom.echoMinMed {
+  border-right: 5px solid black;
+  border-bottom: 5px solid black;
+}
+.echoBottom.echoMed {
+  border-right: 7px solid black;
+  border-bottom: 7px solid black;
+}
+.echoBottom.echoMaxMed {
+  border-right: 9px solid black;
+  border-bottom: 9px solid black;
+}
+.echoBottom.echoMax {
+  border-right: 11px solid black;
+  border-bottom: 11px solid black;
+}
+
+.echoRight {
+  grid-row: 1;
+  grid-column: 2;
+  border-radius: 0 100% 0 0;
+  border-bottom: none;
+  border-left: none;
+}
+.echoRight.echoMin {
+  border-top: 3px solid black;
+  border-right: 3px solid black;
+}
+.echoRight.echoMinMed {
+  border-top: 5px solid black;
+  border-right: 5px solid black;
+}
+.echoRight.echoMed {
+  border-top: 7px solid black;
+  border-right: 7px solid black;
+}
+.echoRight.echoMaxMed {
+  border-top: 9px solid black;
+  border-right: 9px solid black;
+}
+.echoRight.echoMax {
+  border-top: 11px solid black;
+  border-right: 11px solid black;
+}
+
+.echoTop {
+  grid-row: 1;
+  grid-column: 1;
+  border-radius: 100% 0 0 0;
+  border-bottom: none;
+  border-right: none;
+}
+.echoTop.echoMin {
+  border-left: 3px solid black;
+  border-top: 3px solid black;
+}
+.echoTop.echoMinMed {
+  border-left: 5px solid black;
+  border-top: 5px solid black;
+}
+.echoTop.echoMed {
+  border-left: 7px solid black;
+  border-top: 7px solid black;
+}
+.echoTop.echoMaxMed {
+  border-left: 9px solid black;
+  border-top: 9px solid black;
+}
+.echoTop.echoMax {
+  border-left: 11px solid black;
+  border-top: 11px solid black;
+}
+
+/* KEYFRAMES ECHOBARS */
+
+@keyframes echoShadeMin {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes echoShadeMinMed {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.9;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes echoShadeMed {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes echoShadeMaxMed {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes echoShadeMax {
+  0% {
+    opacity: 0.25;
+  }
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.min .echo {
+  animation: 3s linear infinite echoShadeMin;
+}
+
+.minMed .echo {
+  animation: 3s linear infinite echoShadeMinMed;
+}
+
+.med .echo {
+  animation: 3s linear infinite echoShadeMed;
+}
+
+.maxMed .echo {
+  animation: 3s linear infinite echoShadeMaxMed;
+}
+
+.max .echo {
+  animation: 3s linear infinite echoShadeMax;
+}
+
+/* FIN ANIMATION FLECHE NICO */
