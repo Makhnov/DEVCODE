@@ -39,7 +39,7 @@ section.faerun > div.background {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url(../svg/carte.jpg);
+  background-image: url(../img/carte.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: top left;
