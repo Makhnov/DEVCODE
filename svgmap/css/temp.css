@@ -27,15 +27,15 @@ main.container {
   overflow: scroll;
 }
 
-section.faerun {
+section.feerune {
   position: relative;
   width: 100%;
   height: 100%;
   transform-origin: top left;
-  filter: brightness(1);
+  filter: brightness(1.25);
 }
 
-section.faerun > div.background {
+section.feerune > div.background {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -48,43 +48,40 @@ section.faerun > div.background {
 svg {
   position: relative;
   z-index: 100;
+}
+svg path {
+  fill-rule: evenodd;
   fill: transparent;
-}
-svg #trackless_sea path {
-  fill: rgba(0, 0, 0, 0.25);
-}
-svg #trackless_sea:hover path.cls-5 {
-  fill: rgba(0, 0, 0, 0);
-}
-svg #trackless_sea:hover path.cls-2 {
-  stroke-width: 2px;
-  stroke: red;
-  fill: rgba(0, 65, 0, 0.3);
+  transition: 0.5s;
 }
 
-#tuern:hover path.cls-3 {
-  fill: rgba(0, 0, 0, 0);
-}
-#tuern:hover path.cls-2 {
-  stroke-width: 5px;
-  stroke: red;
-  fill: rgba(0, 65, 0, 0.3);
+path.divers:not(.nom):hover {
+  cursor: pointer;
 }
 
-#trisk:hover path.cls-3 {
-  fill: rgba(0, 0, 0, 0);
+path.bordure.beige {
+  fill: #c8ad7f;
 }
-#trisk:hover path.cls-2 {
-  stroke-width: 10px;
-  stroke: beige;
-  fill: rgba(255, 0, 0, 0.25);
+path.bordure.noire {
+  fill: #000;
 }
 
-#utherall:hover path.cls-3 {
-  fill: rgba(0, 0, 0, 0);
+path:not(.bordure, .divers:not(.nom)) {
+  fill: black;
+  fill-opacity: 0.25;
 }
-#utherall:hover path.cls-2 {
-  stroke-width: 10px;
-  stroke: beige;
-  fill: rgba(255, 0, 0, 0.25);
-}/*# sourceMappingURL=temp.css.map */
+
+g:not(.divers):hover path.region.mer {
+  fill: rgb(50, 149, 182);
+}
+g:not(.divers):hover path.nom.mer {
+  fill: red;
+}
+g:not(.divers):hover path.region.zone:not(.nom, .mer) {
+  fill: green;
+}
+g:not(.divers):hover path.region.nom:not(.mer) {
+  fill: red;
+}
+
+/******************************************** ANIMATIONS ********************************************//*# sourceMappingURL=temp.css.map */

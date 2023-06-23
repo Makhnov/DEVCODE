@@ -33,15 +33,15 @@ main.container {
     overflow: scroll;
 }
 
-section.faerun {
+section.feerune {
     position: relative;
     width: 100%;
     height: 100%;
     transform-origin: top left;
-    filter: brightness(1);
+    filter: brightness(1.25);
 }
 
-section.faerun>div.background {
+section.feerune>div.background {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -54,77 +54,121 @@ section.faerun>div.background {
 svg {
     position: relative;
     z-index: 100;
-    fill: transparent;
 
-    // #bordure {
-    //     path {
-    //         fill: rgba(0, 0, 0, 0.75);
-    //     }
+    path {
+        fill-rule: evenodd;
+        fill: transparent;
+        transition: .5s;
+    }
+}
 
-    //     &:hover path {
-    //         fill: rgba(0, 0, 0, 0.25);
-    //     }
+path.divers:not(.nom):hover {
+    cursor: pointer;
+}
+
+path.bordure {
+    &.beige {
+        fill: #c8ad7f;
+    }
+
+    &.noire {
+        fill: #000;
+    }
+}
+
+path:not(.bordure, .divers:not(.nom)) {
+    fill: black;
+    fill-opacity: .25;
+}
+
+g:not(.divers):hover {
+
+    // &:not(.mer) {
+    //     stroke: black;
+    //     stroke-width: .25rem;
+    //     stroke-opacity: 1;
     // }
 
-    #trackless_sea {
-        path {
-            fill: rgba(0, 0, 0, 0.25);
-        }
+    path.region.mer {
+        fill: rgb(50, 149, 182);
+    }
 
-        &:hover {
-            path.cls-5 {
-                fill: rgba(0, 0, 0, 0);
-            }
+    path.nom.mer {
+        fill: red;
+    }
 
-            path.cls-2 {
-                stroke-width: 2px;
-                stroke: red;
-                fill: rgba(0, 65, 0, 0.3);
-            }
-        }
+    path.region.zone:not(.nom, .mer) {
+        fill: green;
+    }
+
+    path.region.nom:not(.mer) {
+        fill: red;
     }
 }
 
-#tuern {
-    &:hover {
-        path.cls-3 {
-            fill: rgba(0, 0, 0, 0);
-        }
 
-        path.cls-2 {
-            stroke-width: 5px;
-            stroke: red;
-            fill: rgba(0, 65, 0, 0.3);
-        }
-    }
-}
 
-#trisk {
-    &:hover {
-        path.cls-3 {
-            fill: rgba(0, 0, 0, 0);
-        }
 
-        path.cls-2 {
-            stroke-width: 10px;
-            stroke: beige;
-            fill: rgba(255, 0, 0, 0.25);
-            //filter: brightness(2);
-        }
-    }
-}
+/******************************************** ANIMATIONS ********************************************/
 
-#utherall {
-    &:hover {
-        path.cls-3 {
-            fill: rgba(0, 0, 0, 0);
-        }
+//     #trackless_sea {
+//         path {
+//             fill: rgba(0, 0, 0, 0.25);
+//         }
 
-        path.cls-2 {
-            stroke-width: 10px;
-            stroke: beige;
-            fill: rgba(255, 0, 0, 0.25);
-            //filter: brightness(2);
-        }
-    }
-}
+//         &:hover {
+//             path.cls-5 {
+//                 fill: rgba(0, 0, 0, 0);
+//             }
+
+//             path.cls-2 {
+//                 stroke-width: 2px;
+//                 stroke: red;
+//                 fill: rgba(0, 65, 0, 0.3);
+//             }
+//         }
+//     }
+// }
+
+// #tuern {
+//     &:hover {
+//         path.cls-3 {
+//             fill: rgba(0, 0, 0, 0);
+//         }
+
+//         path.cls-2 {
+//             stroke-width: 5px;
+//             stroke: red;
+//             fill: rgba(0, 65, 0, 0.3);
+//         }
+//     }
+// }
+
+// #trisk {
+//     &:hover {
+//         path.cls-3 {
+//             fill: rgba(0, 0, 0, 0);
+//         }
+
+//         path.cls-2 {
+//             stroke-width: 10px;
+//             stroke: beige;
+//             fill: rgba(255, 0, 0, 0.25);
+//             //filter: brightness(2);
+//         }
+//     }
+// }
+
+// #utherall {
+//     &:hover {
+//         path.cls-3 {
+//             fill: rgba(0, 0, 0, 0);
+//         }
+
+//         path.cls-2 {
+//             stroke-width: 10px;
+//             stroke: beige;
+//             fill: rgba(255, 0, 0, 0.25);
+//             //filter: brightness(2);
+//         }
+//     }

@@ -1,6 +1,15 @@
 const container = document.querySelector('main.container');
-const carte = document.querySelector('section.faerun');
+const svg = document.getElementById('masque');
+
+const ggs = document.querySelectorAll('main.container g:not(.divers):not(.nom)');
+const paths = document.querySelectorAll('main.container path');
+const carte = document.querySelector('section.feerune');
 let scale = 1;
+
+function init() {
+    //console.log('Hello World!');
+    resize();
+}
 
 carte.addEventListener('wheel', (event) => {
     // if (event.ctrlKey) {
@@ -57,6 +66,72 @@ function zoom(bool, event) {
     }
 }
 
+
+// Fonction de redimensionnement
+function resize() {
+
+    const containerHeight = container.clientHeight;
+    const containerWidth = container.clientWidth;
+
+    const svgHeight = svg.height.baseVal.value;
+    const svgWidth = svg.width.baseVal.value;
+
+    const heightRatio = containerHeight / svgHeight;
+    const widthRatio = containerWidth / svgWidth;
+
+    const coverRatio = Math.max(heightRatio, widthRatio);
+    const newHeight = svgHeight * coverRatio;
+    const newWidth = svgWidth * coverRatio;
+
+    svg.setAttribute('height', newHeight);
+    svg.setAttribute('width', newWidth);
+}
+
+// Fonction de délai (debounce)
+function debounce(func, delay) {
+    let timer;
+    return function () {
+        clearTimeout(timer);
+        timer = setTimeout(func, delay);
+    };
+}
+
+//LISTENERS
+window.addEventListener('resize', debounce(resize, 300));
+ggs.forEach((g) => {
+    g.addEventListener('mouseover', (event) => {
+        //console.log(g);
+        //console.log(typeof g);
+        for (let i = 0; i < g.children.length; i++) {
+            const path = g.children[i];
+            let nom = path.getAttribute('id');
+            if (path.getAttribute('data-name') != null) {
+                nom = path.getAttribute('data-name');
+            }
+            console.log(nom);
+        }
+    });
+});
+
+/*
+
+// Installer un écouteur 'mouseover' sur chaque élément <path>
+paths.forEach((path) => {
+    path.addEventListener('mouseover', () => {
+        // Récupérer les valeurs des attributs de données
+        const nom = path.getAttribute('data-nom');
+        const interco = path.parentNode.getAttribute('data-nom');
+        const pop = path.getAttribute('data-population');
+        const id = path.getAttribute('id');
+
+        // Remplir le fieldset d'informations
+        document.getElementById('denomination').textContent = nom;
+        document.getElementById('comcom').textContent = interco;
+        document.getElementById('population').textContent = pop;
+        document.getElementById('code').textContent = id;
+    });
+});
+*/
 
 /*
 const paths = {
