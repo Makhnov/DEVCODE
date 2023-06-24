@@ -2,85 +2,258 @@ html,
 body {
   margin: 0;
   padding: 0;
-}
-
-html {
-  width: 100vw;
-  height: 100vh;
-}
-
-body {
-  background-color: rgb(171, 230, 230);
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
 }
 
-main.container {
-  position: relative;
-  width: 2040px;
+main.content {
+  width: 100vw;
+  height: 100vh;
+  background-color: whitesmoke;
+  overflow: hidden;
+}
+
+html body main.content.max div.plein-ecran div.developper {
+  opacity: 0;
+}
+html body main.content.max div.plein-ecran div.reduire {
+  opacity: 1;
+}
+html body main.content.max section.informations {
+  transform: scaleX(1) scaleY(1) !important;
+}
+html body main.content.max section.utilitaires div.boussole {
+  top: 15%;
+}
+html body main.content.max section.utilitaires div.echelle {
+  top: 25%;
+}
+
+section.informations {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  bottom: 0;
+  right: 0;
+  box-sizing: border-box;
+  border: 10px solid #c8ad7f;
+  background-color: whitesmoke;
+  transform-origin: right bottom;
+  transition: transform 0.75s;
+}
+section.informations div.bordure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: calc(100% - 10px);
+  width: calc(100% - 10px);
+  border: 5px solid black;
+}
+section.informations #infos {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+section.informations #infos > div {
+  flex: 1 1 150px;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+section.informations #infos > div h1,
+section.informations #infos > div p,
+section.informations #infos > div a {
+  pointer-events: auto;
+  margin: 0;
+  padding: 0;
+}
+
+section.utilitaires {
+  position: absolute;
+  pointer-events: none;
+  transform-origin: top left;
+  width: 2550px;
   aspect-ratio: 51/33;
-  border: 2px solid blue;
+  z-index: 1;
+}
+section.utilitaires div.bordure,
+section.utilitaires div.boussole,
+section.utilitaires div.echelle {
+  position: absolute;
+}
+section.utilitaires div.bordure svg,
+section.utilitaires div.boussole svg,
+section.utilitaires div.echelle svg {
+  height: 100%;
+  width: 100%;
+}
+section.utilitaires div.boussole,
+section.utilitaires div.echelle {
+  pointer-events: auto;
+  cursor: pointer;
+  transition: top 0.75s;
+}
+section.utilitaires div.boussole::after,
+section.utilitaires div.echelle::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background-color: whitesmoke;
+  box-sizing: border-box;
+  border: 2px solid black;
+  box-shadow: 6px 10px 8px rgba(0, 0, 0, 0.3), 3px 5px 4px rgba(0, 0, 0, 0.5);
+}
+section.utilitaires div.plein-ecran {
+  display: none;
+  position: fixed;
+  pointer-events: auto;
+  cursor: pointer;
+  top: 10px;
+  right: 10px;
+  height: 100px;
+  aspect-ratio: 1/1;
+  background-color: whitesmoke;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 6px 10px 8px rgba(0, 0, 0, 0.3), 3px 5px 4px rgba(0, 0, 0, 0.5);
+}
+section.utilitaires div.plein-ecran div.developper,
+section.utilitaires div.plein-ecran div.reduire {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: opacity 0.3s;
+}
+section.utilitaires div.plein-ecran div.developper {
+  background-image: url(../img/developper.png);
+}
+section.utilitaires div.plein-ecran div.reduire {
+  background-image: url(../img/reduire.png);
+  opacity: 0;
+  top: -100%;
+}
+section.utilitaires div.bordure {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+section.utilitaires div.bordure path.bordure.noire {
+  fill: #000;
+}
+section.utilitaires div.bordure path.bordure.beige {
+  fill: #c8ad7f;
+}
+section.utilitaires div.boussole {
+  top: 80%;
+  left: 10%;
+  height: 150px;
+  aspect-ratio: 1/1;
+  transform-origin: center;
+  transform: translate(-50%, -50%);
+}
+section.utilitaires div.boussole::after {
+  top: -12.5%;
+  left: -7.5%;
+  height: 125%;
+  width: 125%;
+  border-radius: 50%;
+}
+section.utilitaires div.boussole path {
+  fill-rule: evenodd;
+  fill: #000;
+  stroke: #000;
+  stroke-width: 5px;
+  stroke-opacity: 1;
+}
+section.utilitaires div.echelle {
+  top: 90%;
+  left: 10%;
+  width: 600px;
+  height: 45px;
+  transform-origin: left;
+  transform: translate(0, -50%);
+}
+section.utilitaires div.echelle::after {
+  top: 0%;
+  left: -10%;
+  height: 100%;
+  width: 120%;
+  border-radius: 10px;
+}
+section.utilitaires div.echelle path {
+  fill-rule: evenodd;
+  fill: #000;
+  stroke: #000;
+  stroke-width: 10px;
+  stroke-opacity: 1;
+}
+
+section.container {
+  position: absolute;
+  transform-origin: top left;
+  width: 2550px;
+  aspect-ratio: 51/33;
   overflow: scroll;
 }
-
-section.feerune {
+section.container div.feerune {
   position: relative;
+  transform-origin: top left;
   width: 100%;
   height: 100%;
-  transform-origin: top left;
   filter: brightness(1.25);
 }
-
-section.feerune > div.background {
+section.container div.feerune > div.background {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url(../img/carte.jpg);
+  background-image: url(../img/carte-min.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: top left;
 }
-
-svg {
-  position: relative;
-  z-index: 100;
+section.container svg {
+  position: absolute;
 }
-svg path {
+section.container svg path {
   fill-rule: evenodd;
   fill: transparent;
   transition: 0.5s;
 }
-
-path.divers:not(.nom):hover {
+section.container path.divers:not(.nom):hover {
   cursor: pointer;
 }
-
-path.bordure.beige {
+section.container path.bordure.beige {
   fill: #c8ad7f;
 }
-path.bordure.noire {
+section.container path.bordure.noire {
   fill: #000;
 }
-
-path:not(.bordure, .divers:not(.nom)) {
+section.container path:not(.bordure, .divers:not(.nom)) {
   fill: black;
   fill-opacity: 0.25;
 }
-
-g:not(.divers):hover path.region.mer {
+section.container g:not(.divers):hover path.region.mer {
   fill: rgb(50, 149, 182);
 }
-g:not(.divers):hover path.nom.mer {
+section.container g:not(.divers):hover path.nom.mer {
   fill: red;
 }
-g:not(.divers):hover path.region.zone:not(.nom, .mer) {
+section.container g:not(.divers):hover path.region.zone:not(.nom, .mer) {
   fill: green;
 }
-g:not(.divers):hover path.region.nom:not(.mer) {
+section.container g:not(.divers):hover path.region.nom:not(.mer) {
   fill: red;
 }
 

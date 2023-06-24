@@ -1,113 +1,334 @@
-// $largeurBox: 2550px;
+$largeurBox: 2550px;
 // $hauteurBox: 1650px;
 
-$largeurBox: 2040px;
+//$largeurBox: 2040px;
 // $hauteurBox: 1320px;
 
 html,
 body {
     margin: 0;
     padding: 0;
-}
-
-html {
-    width: 100vw;
-    height: 100vh;
-}
-
-body {
-    background-color: rgb(171, 230, 230);
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
 }
 
-main.container {
-    position: relative;
+main.content {
+    width: 100vw;
+    height: 100vh;
+    background-color: whitesmoke;
+    overflow: hidden;
+}
+
+html body main.content.max {
+
+    //MENU INFOS OUVERT
+    div.plein-ecran {
+        div.developper {
+            opacity: 0;
+        }
+
+        div.reduire {
+            opacity: 1;
+        }
+    }
+
+    section.informations {
+        transform: scaleX(1) scaleY(1) !important;
+    }
+
+    section.utilitaires {
+        div.boussole {
+            top: 15%;
+        }
+
+        div.echelle {
+            top: 25%;
+        }
+    }
+}
+
+section.informations {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    bottom: 0;
+    right: 0;
+    box-sizing: border-box;
+    border: 10px solid #c8ad7f;
+    background-color: whitesmoke;
+    transform-origin: right bottom;
+    transition: transform .75s;
+
+    div.bordure {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: calc(100% - 10px);
+        width: calc(100% - 10px);
+        border: 5px solid black;
+    }
+
+    #infos {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        >div {
+            flex: 1 1 150px;
+            min-height: 0;
+            min-width: 0;
+            overflow: hidden;
+            padding: 5px;
+            box-sizing: border-box;
+            border: 1px solid black;
+
+            h1,
+            p,
+            a {
+                pointer-events: auto;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+}
+
+section.utilitaires {
+    position: absolute;
+    pointer-events: none;
+    transform-origin: top left;
     width: $largeurBox;
     aspect-ratio: 51/33;
-    border: 2px solid blue;
-    overflow: scroll;
+    z-index: 1;
+
+    div.bordure,
+    div.boussole,
+    div.echelle {
+        position: absolute;
+
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    div.boussole,
+    div.echelle {
+        pointer-events: auto;
+        cursor: pointer;
+        transition: top .75s;
+
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            background-color: whitesmoke;
+            box-sizing: border-box;
+            border: 2px solid black;
+            box-shadow: 6px 10px 8px rgba(0, 0, 0, 0.3), 3px 5px 4px rgba(0, 0, 0, 0.5);
+        }
+
+    }
+
+    div.plein-ecran {
+        display: none;
+
+        position: fixed;
+        pointer-events: auto;
+        cursor: pointer;
+
+        top: 10px;
+        right: 10px;
+        height: 100px;
+        aspect-ratio: 1/1;
+
+        background-color: whitesmoke;
+        box-sizing: border-box;
+        border: 2px solid black;
+        border-radius: 10px;
+        box-shadow: 6px 10px 8px rgba(0, 0, 0, 0.3), 3px 5px 4px rgba(0, 0, 0, 0.5);
+
+        div.developper,
+        div.reduire {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+
+            transition: opacity .3s;
+        }
+
+        div.developper {
+            background-image: url(../img/developper.png);
+        }
+
+        div.reduire {
+            background-image: url(../img/reduire.png);
+            opacity: 0;
+            top: -100%;
+        }
+    }
+
+    div.bordure {
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+
+        path {
+            &.bordure.noire {
+                fill: #000;
+            }
+
+            &.bordure.beige {
+                fill: #c8ad7f;
+            }
+        }
+    }
+
+    div.boussole {
+        top: 80%;
+        left: 10%;
+        height: 150px;
+        aspect-ratio: 1/1;
+
+        transform-origin: center;
+        transform: translate(-50%, -50%);
+
+        &::after {
+
+            top: -12.5%;
+            left: -7.5%;
+            height: 125%;
+            width: 125%;
+
+            border-radius: 50%;
+        }
+
+        path {
+            fill-rule: evenodd;
+            fill: #000;
+            stroke: #000;
+            stroke-width: 5px;
+            stroke-opacity: 1;
+        }
+    }
+
+    div.echelle {
+        top: 90%;
+        left: 10%;
+        width: 600px;
+        height: 45px;
+
+        transform-origin: left;
+        transform: translate(0, -50%);
+
+        &::after {
+
+            top: 0%;
+            left: -10%;
+            height: 100%;
+            width: 120%;
+
+            border-radius: 10px;
+        }
+
+        path {
+            fill-rule: evenodd;
+            fill: #000;
+            stroke: #000;
+            stroke-width: 10px;
+            stroke-opacity: 1;
+        }
+    }
 }
 
-section.feerune {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-origin: top left;
-    filter: brightness(1.25);
-}
-
-section.feerune>div.background {
+section.container {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: url(../img/carte.jpg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: top left;
-}
+    transform-origin: top left;
+    width: $largeurBox;
+    aspect-ratio: 51/33;
+    overflow: scroll;
 
-svg {
-    position: relative;
-    z-index: 100;
+    div.feerune {
+        position: relative;
+        transform-origin: top left;
 
-    path {
-        fill-rule: evenodd;
-        fill: transparent;
-        transition: .5s;
+        width: 100%;
+        height: 100%;
+        filter: brightness(1.25);
+    }
+
+    div.feerune>div.background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url(../img/carte-min.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: top left;
+    }
+
+    svg {
+        position: absolute;
+
+        path {
+            fill-rule: evenodd;
+            fill: transparent;
+            transition: .5s;
+        }
+    }
+
+    path.divers:not(.nom):hover {
+        cursor: pointer;
+    }
+
+    path.bordure {
+        &.beige {
+            fill: #c8ad7f;
+        }
+
+        &.noire {
+            fill: #000;
+        }
+    }
+
+    path:not(.bordure, .divers:not(.nom)) {
+        fill: black;
+        fill-opacity: .25;
+    }
+
+    g:not(.divers):hover {
+
+        // &:not(.mer) {
+        //     stroke: black;
+        //     stroke-width: .25rem;
+        //     stroke-opacity: 1;
+        // }
+
+        path.region.mer {
+            fill: rgb(50, 149, 182);
+        }
+
+        path.nom.mer {
+            fill: red;
+        }
+
+        path.region.zone:not(.nom, .mer) {
+            fill: green;
+        }
+
+        path.region.nom:not(.mer) {
+            fill: red;
+        }
     }
 }
-
-path.divers:not(.nom):hover {
-    cursor: pointer;
-}
-
-path.bordure {
-    &.beige {
-        fill: #c8ad7f;
-    }
-
-    &.noire {
-        fill: #000;
-    }
-}
-
-path:not(.bordure, .divers:not(.nom)) {
-    fill: black;
-    fill-opacity: .25;
-}
-
-g:not(.divers):hover {
-
-    // &:not(.mer) {
-    //     stroke: black;
-    //     stroke-width: .25rem;
-    //     stroke-opacity: 1;
-    // }
-
-    path.region.mer {
-        fill: rgb(50, 149, 182);
-    }
-
-    path.nom.mer {
-        fill: red;
-    }
-
-    path.region.zone:not(.nom, .mer) {
-        fill: green;
-    }
-
-    path.region.nom:not(.mer) {
-        fill: red;
-    }
-}
-
-
-
 
 /******************************************** ANIMATIONS ********************************************/
 

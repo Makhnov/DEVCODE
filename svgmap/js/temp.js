@@ -1,134 +1,225 @@
-const container = document.querySelector('main.container');
-const svg = document.getElementById('masque');
+const main = document.querySelector('main.content');
 
-const ggs = document.querySelectorAll('main.container g:not(.divers):not(.nom)');
-const paths = document.querySelectorAll('main.container path');
-const carte = document.querySelector('section.feerune');
-let scale = 1;
+const container = document.querySelector('section.container');
+const containerUtils = document.querySelector('section.utilitaires');
+const containerInfos = document.querySelector('section.informations');
+
+const svg = document.getElementById('masque');
+const bordure = document.querySelector('div.bordure');
+const boussole = document.querySelector('div.boussole');
+const echelle = document.querySelector('div.echelle');
+const max = document.querySelector('div.plein-ecran');
+
+const ggs = document.querySelectorAll('section.container g:not(.divers):not(.nom)');
+const paths = document.querySelectorAll('section.container path');
+const carte = document.querySelector('div.feerune');
+
+const infosNom = document.querySelector('div.nom p');
+const infosCapitale = document.querySelector('div.Capitale p');
+const infosPopulation = document.querySelector('div.Population p');
+const infosSuperficie = document.querySelector('div.Superficie p');
+const infosRegions = document.querySelector('div.regions ul');
+const infosLien = document.querySelector('div.lien p a');
+
+let redimensionnement = 4;
+let hauteurCarte = 10200 / redimensionnement;
+let largeurCarte = 6600 / redimensionnement;
+let gridSize = 1;
+let scalingZoom = 1;
+let scalingResize;
 
 function init() {
     //console.log('Hello World!');
     resize();
+    //utilsInit();
 }
 
-carte.addEventListener('wheel', (event) => {
-    // if (event.ctrlKey) {
-    //     zoom(true, event);
-    // } else {
-    //     //scroll(true, event);
-    // }
-    zoom(true, event);
-});
-
-function zoom(bool, event) {
-    if (bool) {
-        if (event) { event.preventDefault(); }
-        const scaleAmount = 0.25;
-        let scaleDelta = 0;
-
-        if (event.deltaY < 0) {
-            // Zoom in
-            scaleDelta = scaleAmount;
-        } else {
-            // Zoom out
-            scaleDelta = -scaleAmount;
-        }
-
-        // Calculate new scale
-        const newScale = Math.max(Math.min((scale + scaleDelta), 10), 1);
-
-        // Get mouse position relative to the carte
-        const rect = carte.getBoundingClientRect();
-        const offsetX = event.clientX - rect.left;
-        const offsetY = event.clientY - rect.top;
-
-        // Calculate percentages with respect to the SVG's actual size (which might be zoomed)
-        const xPercent = offsetX / (carte.offsetWidth);
-        const yPercent = offsetY / (carte.offsetHeight);
-
-        // Update scaling
-        carte.style.transform = `scale(${newScale})`;
-
-        // Compute new scroll position: position to keep the cursor over the same point in the SVG
-        const dx = (offsetX - container.scrollLeft);
-        const dy = (offsetY - container.scrollTop);
-
-        const newScrollLeft = dx * (newScale - scale) + container.scrollLeft;
-        const newScrollTop = dy * (newScale - scale) + container.scrollTop;
-
-        // Scroll
-        container.scrollLeft = newScrollLeft;
-        container.scrollTop = newScrollTop;
-
-        scale = newScale;
+function infos(g, event) {
+    console.log(g.id);
+    infosRegions.innerHTML = '';
+    const titre = dataToTxt(true, g.id);
+    infosNom.textContent = titre;
+    infosLien.textContent = "Plus d'infos sur " + titre;
+    infosLien.href = "https://forgottenrealms.fandom.com/wiki/" + dataToTxt(false, g.id);
+    if (g.children.length < 3) {
+        infosRegions.innerHTML = 'Aucune information';
     } else {
-        console.log('else');
-    }
-}
-
-
-// Fonction de redimensionnement
-function resize() {
-
-    const containerHeight = container.clientHeight;
-    const containerWidth = container.clientWidth;
-
-    const svgHeight = svg.height.baseVal.value;
-    const svgWidth = svg.width.baseVal.value;
-
-    const heightRatio = containerHeight / svgHeight;
-    const widthRatio = containerWidth / svgWidth;
-
-    const coverRatio = Math.max(heightRatio, widthRatio);
-    const newHeight = svgHeight * coverRatio;
-    const newWidth = svgWidth * coverRatio;
-
-    svg.setAttribute('height', newHeight);
-    svg.setAttribute('width', newWidth);
-}
-
-// Fonction de délai (debounce)
-function debounce(func, delay) {
-    let timer;
-    return function () {
-        clearTimeout(timer);
-        timer = setTimeout(func, delay);
-    };
-}
-
-//LISTENERS
-window.addEventListener('resize', debounce(resize, 300));
-ggs.forEach((g) => {
-    g.addEventListener('mouseover', (event) => {
-        //console.log(g);
-        //console.log(typeof g);
         for (let i = 0; i < g.children.length; i++) {
             const path = g.children[i];
             let nom = path.getAttribute('id');
             if (path.getAttribute('data-name') != null) {
                 nom = path.getAttribute('data-name');
             }
-            console.log(nom);
+            const li = document.createElement('li');
+            li.textContent = dataToTxt(true, nom);
+            infosRegions.appendChild(li);
         }
+    }
+}
+
+function zoom(event) {
+    if (event) { event.preventDefault(); }
+    const scaleAmount = 0.25;
+    let scaleDelta = 0;
+
+    if (event.deltaY < 0) {
+        // Zoom in
+        scaleDelta = scaleAmount;
+    } else {
+        // Zoom out
+        scaleDelta = -scaleAmount;
+    }
+
+    // Calculate new scale
+    const newScale = Math.max(Math.min((scalingZoom + scaleDelta), 10), 1);
+
+    // Get mouse position relative to the carte
+    const rect = carte.getBoundingClientRect();
+
+    // Get container scale
+    const containerScale = window.getComputedStyle(container).getPropertyValue('transform');
+    const containerScaleValue = parseFloat(containerScale.substring(containerScale.indexOf('(') + 1, containerScale.indexOf(')')));
+
+    const offsetX = (event.clientX - rect.left) / containerScaleValue;
+    const offsetY = (event.clientY - rect.top) / containerScaleValue;
+
+    // console.log('X');
+    // console.log(event.clientX);
+    // console.log(offsetX);
+
+    // console.log('Y');
+    // console.log(event.clientY);
+    // console.log(offsetY);
+
+    // Update scaling
+    carte.style.transform = `scale(${newScale})`;
+    //echelle.style.transform = `scale(${newScale})`;
+
+    // Compute new scroll position: position to keep the cursor over the same point in the SVG
+    const dx = (offsetX - container.scrollLeft);
+    const dy = (offsetY - container.scrollTop);
+
+    const newScrollLeft = dx * (newScale - scalingZoom) + container.scrollLeft;
+    const newScrollTop = dy * (newScale - scalingZoom) + container.scrollTop;
+
+    // Scroll
+    container.scrollLeft = newScrollLeft;
+    container.scrollTop = newScrollTop;
+
+    scalingZoom = newScale;
+}
+
+function resize() { // Fonction qui permet de redimensionner un groupe de personnages en fonction de l'écran de l'utilisateur
+    //console.log('resize');
+
+    container.style.removeProperty('transform');
+    containerUtils.style.removeProperty('transform');
+    containerInfos.style.removeProperty('height');
+    containerInfos.style.removeProperty('width');
+    containerInfos.style.removeProperty('transform');
+    max.style.removeProperty('display');
+
+    const width = document.documentElement.clientWidth; // On récupère la largeur de l'écran de l'utilisateur
+    const height = document.documentElement.clientHeight; // On récupère la hauteur de l'écran de l'utilisateur
+    const ratio = (width / height) / (51 / 33); // Le ratio de notre image de fond (la salle du conseil) est de 16/9e
+
+    // On stocke les ratios hauteurs & largeur par rapport à la taille actuelle de l'écran de l'utilisateur minorés de 2,5% pour les marges
+    let widthRatio = (width / hauteurCarte);
+    let heightRatio = (height / largeurCarte);
+
+    /* On vérifie si l'écran est plus ou moins au bonnes dimensions (+/-20%) ou si il est beaucoup trop large ou beaucoup trop haut */
+    /* On utilisera le ratio le plus réducteur */
+    scalingResize = widthRatio;
+    if (ratio > 1) {
+        scalingResize = heightRatio;
+    }
+
+    const containerHauteur = container.offsetHeight * scalingResize;
+    const containerLargeur = container.offsetWidth * scalingResize;
+    const hauteurTemp = height - containerHauteur;
+    const largeurTemp = width - containerLargeur;
+
+    if (hauteurTemp > 150 || largeurTemp > 200) {
+        if (ratio < 1) {//HAUTEUR DE LA CARTE REDUITE
+            containerInfos.style.height = hauteurTemp + "px";
+        } else if (ratio > 1) {//LARGEUR DE LA CARTE REDUITE
+            containerInfos.style.width = largeurTemp + "px";
+        }
+        container.style.transform = "scale(" + scalingResize + ")"; //translate(" + margeX + "px, " + margeY + "px) 
+        containerUtils.style.transform = "scale(" + scalingResize + ")";
+    } else {
+        containerInfos.style.height = "200px";
+        containerInfos.style.transform = "scaleY(0)"
+        container.style.transform = "scaleX(" + widthRatio + ") scaleY(" + heightRatio + ")";
+        containerUtils.style.transform = "scaleX(" + widthRatio + ") scaleY(" + heightRatio + ")";
+        max.style.display = "block";
+    }
+    /* on place la box (#scene) au centre de l'écran puis on scale ses dimensions en fonctions des ratios précédemment calculés */
+
+
+}
+
+//LISTENERS
+function debounce(func, delay) {//DELAI
+    let timer;
+    return function () {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(() => func.apply(context, args), delay);
+    };
+}
+
+carte.addEventListener('wheel', (event) => {
+    zoom(event);
+});
+
+window.addEventListener('resize', debounce(resize, 300));
+
+ggs.forEach((g) => {
+    g.addEventListener('mouseover', (event) => {
+        infos(g, event);
     });
 });
 
+max.addEventListener('click', () => {
+    resize();
+    main.classList.toggle('max');
+});
+
+/* SYNTAXE */
+function dataToTxt(bool, string) {
+    let str = sansPrefixe(string);
+    str = str.replace(/_/g, ' ');
+    const mots = str.split(' ');
+    const mot = mots.map(function (mot) {
+        return mot === "of" ? mot : mot.charAt(0).toUpperCase() + mot.slice(1);
+    });
+
+    let result;
+
+    if (bool) {
+        result = mot.join(' ');
+    } else {
+        result = mot.join('_');
+    }
+
+    return result;
+}
+
+function sansPrefixe(str) {
+    if (str.toLowerCase().startsWith("the_")) {
+        return str.slice(4);
+    }
+    return str;
+}
+
+
 /*
 
-// Installer un écouteur 'mouseover' sur chaque élément <path>
-paths.forEach((path) => {
-    path.addEventListener('mouseover', () => {
-        // Récupérer les valeurs des attributs de données
-        const nom = path.getAttribute('data-nom');
-        const interco = path.parentNode.getAttribute('data-nom');
-        const pop = path.getAttribute('data-population');
-        const id = path.getAttribute('id');
-
-        // Remplir le fieldset d'informations
-        document.getElementById('denomination').textContent = nom;
-        document.getElementById('comcom').textContent = interco;
-        document.getElementById('population').textContent = pop;
-        document.getElementById('code').textContent = id;
+ggs.forEach((g) => {
+    g.addEventListener('mouseover', (g, event) => {
+        infos(g, event);
     });
 });
 */
